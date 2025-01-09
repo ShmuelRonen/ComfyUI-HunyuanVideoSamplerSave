@@ -1,0 +1,14 @@
+[project]
+name = "hunyuanvideosamplersave"
+description = "A ComfyUI custom node implementation for optimized video generation and motion effects, designed to work with Hunyuan text-to-video models."
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/ShmuelRonen/ComfyUI-HunyuanVideoSamplerSave"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-HunyuanVideoSamplerSave"
+Icon = ""
