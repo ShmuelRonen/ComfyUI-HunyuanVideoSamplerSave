@@ -252,6 +252,7 @@ class ResizeImageForHunyuan:
     
     # Define all supported aspect ratios and their sizes
     size_presets = {
+        "1:1": [(256,256), (384,384), (512,512), (768,768)],
         "16:9": [(384,216), (512,288), (640,360), (768,432)],
         "4:3": [(384,288), (512,384), (640,480), (768,576)],
         "3:2": [(384,256), (512,336), (640,432), (768,512)],
@@ -306,6 +307,10 @@ class EmptyVideoLatentForHunyuan:
     def INPUT_TYPES(s):
         # Define aspect ratios for Hunyuan video that can work with home GPUs (max width 768)
         aspect_ratios = [
+            "256x256 (1:1)",
+            "384x384 (1:1)",
+            "512x512 (1:1)",
+            "768x768 (1:1)",
             "384x216 (16:9)", 
             "512x288 (16:9)",
             "640x360 (16:9)",
