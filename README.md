@@ -4,6 +4,8 @@ A ComfyUI custom node implementation for optimized video generation and motion e
 
 Image to Video:
 ![image](https://github.com/user-attachments/assets/d1acf721-339a-41e4-b757-c680e758939d)
+Text to Video:
+![image](https://github.com/user-attachments/assets/1e0770e1-121a-424f-8a82-3ea6fb80fd78)
 
 
 ## Features
