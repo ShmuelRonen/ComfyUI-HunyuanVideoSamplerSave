@@ -256,9 +256,11 @@ class ResizeImageForHunyuan:
         "16:9": [(384,216), (512,288), (640,360), (768,432)],
         "4:3": [(384,288), (512,384), (640,480), (768,576)],
         "3:2": [(384,256), (512,336), (640,432), (768,512)],
+        "2:1": [(384,192), (512,256), (640,320), (768,384)],
         "9:16": [(216,384), (288,512), (360,640), (432,768)],
         "3:4": [(288,384), (384,512), (480,640), (576,768)],
-        "2:3": [(256,384), (336,512), (432,640), (512,768)]
+        "2:3": [(256,384), (336,512), (432,640), (512,768)],
+        "1:2": [(192,384), (256,512), (320,640), (384,768)]
     }
 
     @classmethod
@@ -323,6 +325,10 @@ class EmptyVideoLatentForHunyuan:
             "512x336 (3:2)",
             "640x432 (3:2)",
             "768x512 (3:2)",
+            "384x192 (2:1)",
+            "512x256 (2:1)",
+            "640x320 (2:1)",
+            "768x384 (2:1)",
             "216x384 (9:16)",
             "288x512 (9:16)",
             "360x640 (9:16)",
@@ -334,7 +340,11 @@ class EmptyVideoLatentForHunyuan:
             "256x384 (2:3)",
             "336x512 (2:3)",
             "432x640 (2:3)",
-            "512x768 (2:3)"
+            "512x768 (2:3)",
+            "192x384 (1:2)",
+            "256x512 (1:2)",
+            "320x640 (1:2)",
+            "384x768 (1:2)"
         ]
         
         return {"required": { 
@@ -365,7 +375,7 @@ class EmptyVideoLatentForHunyuan:
 NODE_CLASS_MAPPINGS = {
     "HunyuanVideoSamplerSave": HunyuanVideoSamplerSave,
     "ResizeImageForHunyuan": ResizeImageForHunyuan,
-    "EmptyVideoLatentForHunyuan": EmptyVideoLatentForHunyuan
+    "EmptyVideoLatentForHunyuan": EmptyVideoLatentForHunyuan,
     "ImageMotionInfluance": ImageMotionInfluance,
 }
 
