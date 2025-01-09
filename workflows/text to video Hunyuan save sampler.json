@@ -1,0 +1,692 @@
+{
+  "last_node_id": 183,
+  "last_link_id": 415,
+  "nodes": [
+    {
+      "id": 26,
+      "type": "FluxGuidance",
+      "pos": [
+        389.17327880859375,
+        123.65411376953125
+      ],
+      "size": [
+        317.4000244140625,
+        58
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 175
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            395
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        6
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 67,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        389.17327880859375,
+        3.9423835277557373
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 375
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            394
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        7
+      ]
+    },
+    {
+      "id": 144,
+      "type": "VAEDecodeTiled",
+      "pos": [
+        1198.816162109375,
+        191.70135498046875
+      ],
+      "size": [
+        315,
+        150
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 399
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 414
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            350
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeTiled"
+      },
+      "widgets_values": [
+        256,
+        64,
+        64,
+        8
+      ]
+    },
+    {
+      "id": 127,
+      "type": "CLIPTextEncode",
+      "pos": [
+        389.17327880859375,
+        330.7030944824219
+      ],
+      "size": [
+        285.6000061035156,
+        117.79318237304688
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 322
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            396
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 44,
+      "type": "CLIPTextEncode",
+      "pos": [
+        389.17327880859375,
+        272.10333251953125
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 321
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 410,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            175
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A raw footage of a young woman with vibrant blue and pink hair, wearing intricate steampunk gear including a headpiece with a clock, and adorned with elaborate body tattoos. Her intense gaze exemplifies a blend of futuristic and retro elements, as she moves gracefully, revealing more details of her unique attire and striking tattoos. The background is dimly lit, highlighting her as the central focus, with subtle glints of light illuminating her accessories."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": [
+        0,
+        450.6163024902344
+      ],
+      "size": [
+        350,
+        60
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            413
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "hunyuan_video_vae_bf16.safetensors"
+      ]
+    },
+    {
+      "id": 180,
+      "type": "String Literal",
+      "pos": [
+        -492.963134765625,
+        253.37518310546875
+      ],
+      "size": [
+        437.2080078125,
+        428.0180358886719
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            410
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "String Literal"
+      },
+      "widgets_values": [
+        "A captivating fashion reportage in high resolution 4k. A blonde model adorned with exquisite jewelry and a gothic, laced corset, standing elegantly in a luxurious, velvet-draped room. Cinematic, realistic rendering with dramatic lighting and soft, flowing movements."
+      ]
+    },
+    {
+      "id": 145,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1560.813720703125,
+        189.8448944091797
+      ],
+      "size": [
+        507.20257568359375,
+        997.6034545898438
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 350
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "vered\\bon",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "bon_00006.mp4",
+            "subfolder": "vered",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "bon_00006.png",
+            "fullpath": "E:\\ComfyUI_windows\\ComfyUI\\output\\vered\\bon_00006.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 182,
+      "type": "Reroute",
+      "pos": [
+        652.2443237304688,
+        454.8930969238281
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 413
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "VAE",
+          "links": [
+            414
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 12,
+      "type": "UNETLoader",
+      "pos": [
+        -0.9540315866470337,
+        130.87167358398438
+      ],
+      "size": [
+        350,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            375
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "hunyuan_video_720_cfgdistill_bf16.safetensors",
+        "default"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 11,
+      "type": "DualCLIPLoader",
+      "pos": [
+        0.7883632183074951,
+        266.8461608886719
+      ],
+      "size": [
+        350,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            321,
+            322
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "llava_llama3_fp8_scaled.safetensors",
+        "hunyuan_video"
+      ]
+    },
+    {
+      "id": 183,
+      "type": "EmptyVideoLatentForHunyuan",
+      "pos": [
+        4.407060623168945,
+        576.1781005859375
+      ],
+      "size": [
+        344.60821533203125,
+        108.8622055053711
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            415
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyVideoLatentForHunyuan"
+      },
+      "widgets_values": [
+        "480x640 (3:4)",
+        53,
+        1
+      ]
+    },
+    {
+      "id": 175,
+      "type": "HunyuanVideoSamplerSave",
+      "pos": [
+        805.5363159179688,
+        178.25732421875
+      ],
+      "size": [
+        327.5999755859375,
+        262
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 394
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 395
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 396
+        },
+        {
+          "name": "video_latents",
+          "type": "LATENT",
+          "link": 415
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            399
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HunyuanVideoSamplerSave"
+      },
+      "widgets_values": [
+        398139746042609,
+        "randomize",
+        20,
+        1,
+        "euler",
+        "beta",
+        1
+      ]
+    }
+  ],
+  "links": [
+    [
+      175,
+      44,
+      0,
+      26,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      321,
+      11,
+      0,
+      44,
+      0,
+      "CLIP"
+    ],
+    [
+      322,
+      11,
+      0,
+      127,
+      0,
+      "CLIP"
+    ],
+    [
+      350,
+      144,
+      0,
+      145,
+      0,
+      "IMAGE"
+    ],
+    [
+      375,
+      12,
+      0,
+      67,
+      0,
+      "MODEL"
+    ],
+    [
+      394,
+      67,
+      0,
+      175,
+      0,
+      "MODEL"
+    ],
+    [
+      395,
+      26,
+      0,
+      175,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      396,
+      127,
+      0,
+      175,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      399,
+      175,
+      0,
+      144,
+      0,
+      "LATENT"
+    ],
+    [
+      410,
+      180,
+      0,
+      44,
+      1,
+      "STRING"
+    ],
+    [
+      413,
+      10,
+      0,
+      182,
+      0,
+      "*"
+    ],
+    [
+      414,
+      182,
+      0,
+      144,
+      1,
+      "VAE"
+    ],
+    [
+      415,
+      183,
+      0,
+      175,
+      3,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.598950000000001,
+      "offset": [
+        558.3224359309492,
+        91.1757390778323
+      ]
+    },
+    "groupNodes": {},
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "node_versions": {
+      "comfy-core": "v0.3.10-2-g160ca08",
+      "comfy-image-saver": "65e6903eff274a50f8b5cd768f0f96baf37baea1",
+      "ComfyUI-HunyuanVideoSamplerSave": "unknown"
+    }
+  },
+  "version": 0.4
+}
