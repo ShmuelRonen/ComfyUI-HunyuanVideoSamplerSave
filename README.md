@@ -48,7 +48,7 @@ A latent initialization tool specifically designed for Hunyuan video generation:
 cd ComfyUI/custom_nodes/
 git clone https://github.com/ShmuelRonen/ComfyUI-HunyuanVideoSamplerSave.git
 ```
-2. Download the model to models/unet folder:
+2. Download the model to `models/unet` folder:
 ```
 https://drive.google.com/file/d/1BvGHjR4Mb60ZPx9tqzA1AabAwZc47ctx/view?usp=sharing
 ```
