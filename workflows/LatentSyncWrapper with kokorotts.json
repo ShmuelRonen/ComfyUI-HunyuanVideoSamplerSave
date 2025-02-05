@@ -1,0 +1,519 @@
+{
+  "last_node_id": 23,
+  "last_link_id": 37,
+  "nodes": [
+    {
+      "id": 16,
+      "type": "D_LatentSyncNode",
+      "pos": [
+        3115.077880859375,
+        280.88446044921875
+      ],
+      "size": [
+        315,
+        102
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 31
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            26
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            27
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "D_LatentSyncNode"
+      },
+      "widgets_values": [
+        1134,
+        "randomize"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "D_VideoLengthAdjuster",
+      "pos": [
+        2749.6884765625,
+        281.15283203125
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 30
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            31
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            32
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "D_VideoLengthAdjuster"
+      },
+      "widgets_values": [
+        "pingpong",
+        25,
+        0.5
+      ]
+    },
+    {
+      "id": 14,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        2471.349365234375,
+        281.2410583496094
+      ],
+      "size": [
+        247.455078125,
+        262
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            30
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "MMaudio_00012-audio.mp4",
+        "force_rate": 25,
+        "force_size": "Disabled",
+        "custom_width": 512,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 25,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1,
+            "filename": "MMaudio_00012-audio.mp4",
+            "type": "input",
+            "format": "video/mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        3484.551513671875,
+        280.7626647949219
+      ],
+      "size": [
+        604.5905151367188,
+        737.7269897460938
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 26
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 27,
+          "shape": 7
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 25,
+        "loop_count": 0,
+        "filename_prefix": "cosmos_output",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "cosmos_output_00002-audio.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 25,
+            "workflow": "cosmos_output_00002.png",
+            "fullpath": "E:\\ComfyUI_windows\\ComfyUI\\temp\\cosmos_output_00002-audio.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 1,
+      "type": "SetNode",
+      "pos": [
+        2484.36328125,
+        50.261775970458984
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            33
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Set_autio_Kokorotts-1",
+      "properties": {
+        "previousName": ""
+      },
+      "widgets_values": [
+        "autio_Kokorotts-1"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 23,
+      "type": "KokoroGenerator",
+      "pos": [
+        2435.13525390625,
+        -340.4314270019531
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "speaker",
+          "type": "KOKORO_SPEAKER",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            36,
+            37
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KokoroGenerator"
+      },
+      "widgets_values": [
+        "Would you like me to help implement any of these specific optimizations or would you like more details about any particular aspect?",
+        1,
+        "en-us"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "KokoroSpeaker",
+      "pos": [
+        2000.9835205078125,
+        -345.7167053222656
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "speaker",
+          "type": "KOKORO_SPEAKER",
+          "links": [
+            35
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KokoroSpeaker"
+      },
+      "widgets_values": [
+        "bm_daniel"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "PreviewAudio",
+      "pos": [
+        2923.592041015625,
+        -341.7496032714844
+      ],
+      "size": [
+        315,
+        76
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 36
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": [
+        null
+      ]
+    }
+  ],
+  "links": [
+    [
+      26,
+      16,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      27,
+      16,
+      1,
+      2,
+      1,
+      "AUDIO"
+    ],
+    [
+      30,
+      14,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      20,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      32,
+      20,
+      1,
+      16,
+      1,
+      "AUDIO"
+    ],
+    [
+      33,
+      1,
+      0,
+      20,
+      1,
+      "AUDIO"
+    ],
+    [
+      35,
+      22,
+      0,
+      23,
+      0,
+      "KOKORO_SPEAKER"
+    ],
+    [
+      36,
+      23,
+      0,
+      7,
+      0,
+      "AUDIO"
+    ],
+    [
+      37,
+      23,
+      0,
+      1,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Group",
+      "bounding": [
+        2444.486328125,
+        -68.68045806884766,
+        1703.4132080078125,
+        1253.5755615234375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7247295000000009,
+      "offset": {
+        "0": -1297.8697509765625,
+        "1": 1014.8385620117188
+      }
+    },
+    "node_versions": {
+      "ComfyUI-VideoHelperSuite": "cad87a17a3ff5e03c26cf55e4dc90397b5642503",
+      "comfyui-kokoro": "743120d2e5eec4eb4503205f9f4a93d9b997d7f6",
+      "comfy-core": "0.3.13"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
